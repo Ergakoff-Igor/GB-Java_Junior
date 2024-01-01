@@ -1,4 +1,4 @@
-package ru.gb.ergakov.lesson1.task2;
+package ru.gb.ergakov.lesson1.seminar1.task2;
 
 /**
  * Вещь

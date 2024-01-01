@@ -1,4 +1,4 @@
-package ru.gb.ergakov.lesson1.task1;
+package ru.gb.ergakov.lesson1.seminar1.task1;
 
 import java.util.Locale;
 

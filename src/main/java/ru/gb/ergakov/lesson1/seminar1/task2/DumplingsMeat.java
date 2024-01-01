@@ -1,9 +1,9 @@
-package ru.gb.ergakov.lesson1.task2;
+package ru.gb.ergakov.lesson1.seminar1.task2;
 
 /**
- * Сыр Балыковый (Балык)
+ * Пельмени
  */
-public class BalykCheese implements Snack {
+public class DumplingsMeat implements SemiFinishedFood{
     @Override
     public boolean getProteins() {
         return true;
@@ -21,6 +21,6 @@ public class BalykCheese implements Snack {
 
     @Override
     public String getName() {
-        return "Сыр (Балык)";
+        return "Пельмени";
     }
 }

@@ -1,9 +1,9 @@
-package ru.gb.ergakov.lesson1.task2;
+package ru.gb.ergakov.lesson1.seminar1.task2;
 
 /**
- * Чебурек
+ * Оливковое масло
  */
-public class Cheburek implements SemiFinishedFood{
+public class OliveOil implements HealthyFood{
     @Override
     public boolean getProteins() {
         return false;
@@ -21,6 +21,6 @@ public class Cheburek implements SemiFinishedFood{
 
     @Override
     public String getName() {
-        return "Чебурек";
+        return "Оливковое масло";
     }
 }

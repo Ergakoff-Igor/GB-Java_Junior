@@ -1,9 +1,9 @@
-package ru.gb.ergakov.lesson1.task2;
+package ru.gb.ergakov.lesson1.seminar1.task2;
 
 /**
- * Фрукт
+ * Чипсы
  */
-public class Fruit implements HealthyFood{
+public class Crisps implements Snack{
     @Override
     public boolean getProteins() {
         return false;
@@ -11,16 +11,16 @@ public class Fruit implements HealthyFood{
 
     @Override
     public boolean getFats() {
-        return false;
-    }
-
-    @Override
-    public boolean getCarbohydrates() {
         return true;
     }
 
     @Override
+    public boolean getCarbohydrates() {
+        return false;
+    }
+
+    @Override
     public String getName() {
-        return "Фрукт";
+        return "Чипсы";
     }
 }

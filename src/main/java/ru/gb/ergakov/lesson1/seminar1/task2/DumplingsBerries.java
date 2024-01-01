@@ -1,9 +1,9 @@
-package ru.gb.ergakov.lesson1.task2;
+package ru.gb.ergakov.lesson1.seminar1.task2;
 
 /**
- * Оливковое масло
+ * Замороженные ягоды
  */
-public class OliveOil implements HealthyFood{
+public class DumplingsBerries implements SemiFinishedFood{
     @Override
     public boolean getProteins() {
         return false;
@@ -11,16 +11,16 @@ public class OliveOil implements HealthyFood{
 
     @Override
     public boolean getFats() {
-        return true;
-    }
-
-    @Override
-    public boolean getCarbohydrates() {
         return false;
     }
 
     @Override
+    public boolean getCarbohydrates() {
+        return true;
+    }
+
+    @Override
     public String getName() {
-        return "Оливковое масло";
+        return "Замороженные ягоды";
     }
 }

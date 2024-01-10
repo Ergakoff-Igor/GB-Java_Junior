@@ -27,65 +27,17 @@ public class Homework1Task1 {
 cardBalancing() с использованием Stream API
 * [Решение](src/main/java/ru/gb/ergakov/lesson1/seminar1/task2/Cart.java)
 
-```java
-/**
-     * Балансировка корзины
-     */
-    public void cardBalancingStream() {
-        boolean proteins = checkNutrientFlag(Food::getProteins);
-        boolean fats = checkNutrientFlag(Food::getFats);
-        boolean carbohydrates = checkNutrientFlag(Food::getCarbohydrates);
+## Урок 2. Reflection API
+### Задание № 1:
+1. Создайте абстрактный класс "Animal" с полями "name" и "age".
+2. Реализуйте два класса-наследника от "Animal" (например, "Dog" и "Cat") 
+с уникальными полями и методами.
+3. Создайте массив объектов типа "Animal" и с использованием Reflection API
+4. выполните следующие действия:
+   * Выведите на экран информацию о каждом объекте.
+   * Вызовите метод "makeSound()" у каждого объекта, если такой метод присутствует.
 
-        if (proteins && fats && carbohydrates) {
-            System.out.println("Корзина уже сбалансирована по БЖУ.");
-            return;
-        }
-
-        Collection<T> marketFoods = market.getThings(clazz);
-        proteins = checkNutrientFlag(proteins, Food::getProteins, marketFoods);
-        fats = checkNutrientFlag(fats, Food::getFats, marketFoods);
-        carbohydrates = checkNutrientFlag(carbohydrates, Food::getCarbohydrates, marketFoods);
-
-        if (proteins && fats && carbohydrates) {
-            System.out.println("Корзина сбалансирована по БЖУ.");
-        } else {
-            System.out.println("Невозможно сбалансировать корзину по БЖУ.");
-        }
-
-    }
-
-    /**
-     * Проверка наличия конкретного питательного элемента в корзине
-     *
-     * @param nutrientCheck список продуктов в корзине
-     * @return состояние обновленного флага питательного элемента
-     */
-    private boolean checkNutrientFlag(Predicate<Food> nutrientCheck) {
-        Optional<T> optionalFood = foodstuffs.stream()
-                .filter(nutrientCheck)
-                .findFirst();
-        return optionalFood.isPresent();
-    }
-
-    /**
-     * Поиск недостающих питательных элементов в корзине и добавление питательно элемента
-     * исходя из общего фильтра продуктов
-     *
-     * @param nutrientFlag  наличие питательного элемента
-     * @param nutrientCheck список продуктов в корзине
-     * @param foods         доступный список продуктов (исходя из текущего фильтра)
-     * @return состояние обновленного флага питательного элемента (скорее всего будет true,
-     * false - в случае, если невозможно найти продукт с нужным питательным элементом, в таком
-     * случае, невозможно сбалансировать корзину по БЖУ
-     */
-    private boolean checkNutrientFlag(boolean nutrientFlag, Predicate<Food> nutrientCheck, Collection<T> foods) {
-        if (!nutrientFlag) {
-            Optional<T> optionalFood = foods.stream()
-                    .filter(nutrientCheck)
-                    .findFirst();
-            optionalFood.ifPresent(foodstuffs::add);
-            return optionalFood.isPresent();
-        }
-        return true;
-    }
-```
+### Дополнительная задача:
+Доработайте метод генерации запроса на удаление объекта из таблицы БД 
+(DELETE FROM <Table> WHERE ID = '<id>')
+В классе QueryBuilder который мы разработали на семинаре.

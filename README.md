@@ -36,8 +36,55 @@ cardBalancing() с использованием Stream API
 4. выполните следующие действия:
    * Выведите на экран информацию о каждом объекте.
    * Вызовите метод "makeSound()" у каждого объекта, если такой метод присутствует.
+* [Решение](src/main/java/ru/gb/ergakov/lesson2/Homework2/Program.java)
 
 ### Дополнительная задача:
 Доработайте метод генерации запроса на удаление объекта из таблицы БД 
 (DELETE FROM <Table> WHERE ID = '<id>')
 В классе QueryBuilder который мы разработали на семинаре.
+* [Решение](src/main/java/ru/gb/ergakov/lesson2/Seminar2/task2/QueryBuilder.java)
+
+```java
+//Class Program
+   System.out.println("Homework:");
+   String deleteQuery = queryBuilder.buildDeleteQuery(Employee.class, pk);
+   System.out.println("Delete Query: " + deleteQuery);
+
+//Class QueryBuilder
+   /**
+    * Построить запрос на удаление объекта из бд
+    * @param clazz
+    * @param primaryKey
+    * @return
+    */
+   public String buildDeleteQuery(Class<?> clazz, UUID primaryKey){
+           StringBuilder query = new StringBuilder("DELETE FROM ");
+   
+           if (clazz.isAnnotationPresent(Table.class)) {
+               Table tableAnnotation = clazz.getAnnotation(Table.class);
+               query.append(tableAnnotation.name()).append(" WHERE ");
+               
+               Field[] fields = clazz.getDeclaredFields();
+               for (Field field : fields) {
+                 if (field.isAnnotationPresent(Column.class)) {
+                    Column columnAnnotation = field.getAnnotation(Column.class);
+                    if (columnAnnotation.primaryKey()) {
+                       query
+                             .append(columnAnnotation.name())
+                             .append(" = '").append(primaryKey).append("'");
+                       break;
+                       }
+                    }
+                 }
+               }
+           else {
+               return "";
+           }
+           return query.toString();
+}
+```
+Вывод в терминал:
+```shell
+Homework:
+Delete Query: DELETE FROM users WHERE id = '6a264242-3e5b-463c-bbdb-d6068b8d3e88'
+```

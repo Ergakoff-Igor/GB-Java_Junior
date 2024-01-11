@@ -144,17 +144,35 @@ public class QueryBuilder {
     }
 
     /**
-     * TODO: Доработать запрос в рамках домашней работы
+     * Домашняя работа
+     * Построить запрос на удаление объекта из бд
      * @param clazz
      * @param primaryKey
      * @return
      */
     public String buildDeleteQuery(Class<?> clazz, UUID primaryKey){
-        return null;
+        StringBuilder query = new StringBuilder("DELETE FROM ");
+
+        if (clazz.isAnnotationPresent(Table.class)) {
+            Table tableAnnotation = clazz.getAnnotation(Table.class);
+            query.append(tableAnnotation.name()).append(" WHERE ");
+
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields) {
+                if (field.isAnnotationPresent(Column.class)) {
+                    Column columnAnnotation = field.getAnnotation(Column.class);
+                    if (columnAnnotation.primaryKey()) {
+                        query
+                                .append(columnAnnotation.name())
+                                .append(" = '").append(primaryKey).append("'");
+                        break;
+                    }
+                }
+            }
+        }
+        else {
+            return "";
+        }
+        return query.toString();
     }
-
-
-
-
-
 }

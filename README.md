@@ -45,7 +45,7 @@ cardBalancing() с использованием Stream API
 * [Решение](src/main/java/ru/gb/ergakov/lesson2/Seminar2/task2/QueryBuilder.java)
 
 ```java
-//Class Program
+//Class AppSerializable
    System.out.println("Homework:");
    String deleteQuery = queryBuilder.buildDeleteQuery(Employee.class, pk);
    System.out.println("Delete Query: " + deleteQuery);
@@ -121,7 +121,7 @@ public class Student implements Serializable {
 
    @Override
    public String toString() {
-      return "Student{" +
+      return "Student1{" +
               "name='" + name + '\'' +
               ", age=" + age +
               ", GPA=" + GPA +
@@ -162,10 +162,10 @@ public class Program {
 
 Вывод в терминал:
 ```shell
-Создан экземпляр -> Student{name='Igor', age=31, GPA=6.5}
+Создан экземпляр -> Student1{name='Igor', age=31, GPA=6.5}
 Сериализация выполнена успешно!
 Десериализация выполнена успешно!
-Student{name='Igor', age=31, GPA=0.0}
+Student1{name='Igor', age=31, GPA=0.0}
 ```
 7. Ответьте на вопрос, почему значение GPA не было сохранено/восстановлено.
 
@@ -177,3 +177,17 @@ transient double GPA;
 ### Задание 2 (Дополнительное):
 Выполнить задачу 1 используя другие типы сериализаторов 
 (в xml и json документы).
+
+[Решение](src/main/java/ru/gb/ergakov/lesson3/homework3/AppSerializable.java)
+
+Не получилось сделать свои дополнительные задумки:
+
+* [Инкодинг и декодинг поля GPA в классе, имплементирующем "Externalizable"](src/main/java/ru/gb/ergakov/lesson3/homework3/Student2.java)
+* Работу приложения в классе "AppSerializable" при помощи дженериков,
+т.к. не смог вызвать команду T.class при десериализации из файлов
+JSON и XML
+
+Прошу, по возможности, помочь найти решение сложившимся проблемам.
+
+Также, по возможности, прошу подсказать, в чем может быть проблема при
+работе с Lombok. Аннотации есть, но методы и конструкторы не работают.

@@ -2,10 +2,10 @@ package ru.gb.ergakov.lesson3.homework3;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-/**
- *TODO
- */
-public abstract class Student {
+import java.io.*;
+
+
+public class Student1 implements Serializable {
     private String name;
     private int age;
 
@@ -21,19 +21,19 @@ public abstract class Student {
         return age;
     }
 
-    public Student(String name, int age, double GPA) {
+    public Student1(String name, int age, double GPA) {
         this.name = name;
         this.age = age;
         this.GPA = GPA;
     }
 
-    public Student(String name, int age) {
+    public Student1(String name, int age) {
         this.name = name;
         this.age = age;
         this.GPA = 0.0;
     }
 
-    public Student() {
+    public Student1() {
     }
 
     @Override
@@ -44,4 +44,6 @@ public abstract class Student {
                 ", GPA=" + GPA +
                 '}';
     }
+
+
 }

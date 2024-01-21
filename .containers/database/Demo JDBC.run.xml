@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Demo JDBC" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="ru.gb.ergakov.Lesson4.Seminar4.task1.Program" />
+    <module name="GB-Java_Junior" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -201,3 +201,6 @@ JSON и XML
 Используя Hibernate, напишите код для вставки, чтения, обновления и удаления данных в таблице Courses.
 Убедитесь, что каждая операция выполняется в отдельной транзакции.
 
+* [Решение JDBC](src/main/java/ru/gb/ergakov/Lesson4/Homework4/JDBC/Program.java)
+* [Решение Hibernate](src/main/java/ru/gb/ergakov/Lesson4/Homework4/Hibernate/Program.java)
+
